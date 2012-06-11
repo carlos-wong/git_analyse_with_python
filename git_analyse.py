@@ -5,6 +5,8 @@ import time
 import string
 import commands
 
+time_pos = 1
+
 def run_sys_command(command):
   status,output_file = commands.getstatusoutput(command.strip())
   print "\"%s\" return: "%(command.strip()),"status: ", status
@@ -25,5 +27,8 @@ else:
   os.chdir(work_path)
   get_git_command = "git log --author=\"%s\" --pretty=format:\"%%ci\""%(who)
   analyse_data = run_sys_command(get_git_command)
-  print analyse_data
+  array_anlayse = analyse_data.split("\n")
+  for enum_analyse in array_anlayse:
+    array_date = enum_analyse.split(" ")
+    print array_date[time_pos]
 
