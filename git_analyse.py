@@ -29,6 +29,6 @@ else:
   analyse_data = run_sys_command(get_git_command)
   array_anlayse = analyse_data.split("\n")
   for enum_analyse in array_anlayse:
-    array_date = enum_analyse.split(" ")
-    print array_date[time_pos]
+    print enum_analyse
+    print time.strptime(enum_analyse,"%Y-%m-%d %H:%M:%S +0800").tm_hour
 
