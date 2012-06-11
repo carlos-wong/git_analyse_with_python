@@ -24,7 +24,7 @@ if i != 3:
 else:
   i = 0
   for who in open(sys.argv[1]):
-    print who
+    print who.strip()
     work_path = sys.argv[2]
     os.chdir(work_path)
     get_git_command = "git log --all --author=\"%s\" --pretty=format:\"%%ci\""%(who.strip())
@@ -48,4 +48,4 @@ else:
       for enum_time_of_hour in time_of_hour:
         print "sect %d-%d is "%(i*time_step,(i+1)*time_step),enum_time_of_hour
         i = i + 1
-
+      print
